@@ -19,6 +19,7 @@ class Solution {
         if(max_sofar<0){
             return max_sofar;
         }
+        //maximum circular subarray sum — by subtracting the minimum subarray (i.e., the worst part in the middle)
         return Math.max(max_sofar,total-min_sofar);
 
     }

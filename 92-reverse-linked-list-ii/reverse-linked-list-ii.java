@@ -11,19 +11,20 @@
 class Solution {
     public ListNode reverseBetween(ListNode head, int left, int right) {
         ListNode dummy=new ListNode(0);
-        dummy.next=head;
         ListNode prev=dummy;
-        for(int i=1;i<left;i++){
+        dummy.next=head;
+        for(int i=0;i<left-1;i++){
             prev=prev.next;
         }
-        ListNode curr=prev.next;
-        ListNode nxt=curr.next;
+        ListNode main=prev.next;
+        ListNode nxt=main.next;
         for(int i=0;i<right-left;i++){
-            curr.next=nxt.next;
+            main.next=nxt.next;
             nxt.next=prev.next;
             prev.next=nxt;
-            nxt=curr.next;
+            nxt=main.next;
         }
+
         return dummy.next;
     }
 }

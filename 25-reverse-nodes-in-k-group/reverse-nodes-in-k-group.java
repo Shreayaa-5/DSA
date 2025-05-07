@@ -27,7 +27,7 @@ class Solution {
         for (int i = 0; i < length / k; i++) {
             ListNode curr = prev.next;
             ListNode next = curr.next;
-            for (int j = 1; j < k; j++) {
+            for (int j = 0; j < k-1; j++) {
                 curr.next = next.next;
                 next.next = prev.next;
                 prev.next = next;

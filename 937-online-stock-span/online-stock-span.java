@@ -5,12 +5,12 @@ class StockSpanner {
     }
     
     public int next(int price) {
-        int days=1;
-        while(!st.isEmpty() && st.peek()[1]<=price){
-            days+=st.pop()[0];
+        int day=1;
+        while(!st.isEmpty() && st.peek()[0]<=price){
+            day+=st.pop()[1];
         }
-        st.push(new int[] {days,price});
-        return days;
+        st.push(new int[] {price,day});
+        return day;
     }
 }
 

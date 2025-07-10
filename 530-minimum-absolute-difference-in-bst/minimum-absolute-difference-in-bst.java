@@ -15,6 +15,7 @@
  */
 class Solution {
     public int getMinimumDifference(TreeNode root) {
+        //Normally leetcode no dupliates allowed
         List<Integer> l=new ArrayList<>();
         inorder(root,l);
         int min=Integer.MAX_VALUE;

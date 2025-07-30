@@ -1,23 +1,19 @@
-import java.util.HashMap;
-import java.util.Map;
-
 class Solution {
     public boolean canConstruct(String ransomNote, String magazine) {
-        Map<Character, Integer> second = new HashMap<>();
-        
-        // Count character frequencies in magazine
-        for (char i : magazine.toCharArray()) {
-            second.put(i, second.getOrDefault(i, 0) + 1);
+        HashMap<Character,Integer> mm=new HashMap<>();
+        HashMap<Character,Integer> rr=new HashMap<>();
+        for(Character a:magazine.toCharArray()){
+            mm.put(a,mm.getOrDefault(a,0)+1);
         }
-
-        // Check if ransomNote can be constructed
-        for (char i : ransomNote.toCharArray()) {
-            if (!second.containsKey(i) || second.get(i) == 0) {
-                return false;
+        for(Character a:ransomNote.toCharArray()){
+            rr.put(a,rr.getOrDefault(a,0)+1);
+        }
+        boolean ans=true;
+        for(Character a:rr.keySet()){
+            if(mm.getOrDefault(a,0)<rr.get(a)){
+                ans=false;
             }
-            second.put(i, second.get(i) - 1); // Reduce count of used character
         }
-
-        return true;
+        return ans;
     }
 }
